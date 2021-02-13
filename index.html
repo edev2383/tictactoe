@@ -349,30 +349,25 @@
         }
       };
 
-      // Create Players
-      // theoretically with some modification and/or refactoring, we
-      // can make this game allow for human v human, human v computer,
-      // and even computer v computer
-      const Human = Player('human');
-      const CPU = Player('computer');
-
-      // initialize the game
-      TicTacToe.start(Human, CPU);
-
       /**
+       * Implementation of the MinMax algorithm.
+       *
+       * Referenced in this article
+       * https://gsurma.medium.com/tic-tac-toe-creating-unbeatable-ai-with-minimax-algorithm-8af9e52c1e7d
        *
        * @param board array   -
        * @param cpu   Player  - Computer player
        * @param human Player  - Human player
        *
+       * @returns number
        * */
       const MinMax = function (board, cpu, human) {
         // initialize move and score values
         let move = -1;
         let score = -2;
 
-        // if the algorithm is inconclusive, we'll use this to take a
-        // random move
+        // if the algorithm is inconclusive, we'll use this array to
+        // return a random move
         const availableMoves = [];
 
         // loop through board index values
@@ -411,6 +406,16 @@
         // return the move value
         return move;
       };
+
+      // Create Players
+      // theoretically with some modification and/or refactoring, we
+      // can make this game allow for human v human, human v computer,
+      // and even computer v computer
+      const Human = Player('human');
+      const CPU = Player('computer');
+
+      // initialize the game
+      TicTacToe.start(Human, CPU);
     </script>
   </body>
 </html>
